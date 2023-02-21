@@ -1,0 +1,53 @@
+<%- include('layout/header') %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-dark pt-5 display-3">Add New User</h1>
+                <form class="needs-validation" action="/add" method="post" id="add-form" enctype="multipart/form-data">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder=""
+                                value="" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" name="lastName" id="lastName" placeholder=""
+                                value="" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="" value=""
+                                required>
+                            <div class="invalid-feedback">
+                                Valid email is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label class="form-label" for="image">Upload</label>
+                                <input type="file" class="form-control" name="image" id="image" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <!-- <button type="submit" class="btn btn-primary">Add User</button> -->
+                            <input type="submit" value="Add User" class="btn btn-primary">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('layout/footer') %>

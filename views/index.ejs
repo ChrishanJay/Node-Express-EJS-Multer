@@ -1,0 +1,64 @@
+<%- include('layout/header') %>
+
+    <div class="container">
+        <h1 class="text-dark pt-5">User List</h1>
+        <div class="row my-4">
+            <div class="col-sm-12">
+                <% if (message) { %>
+                    <div class="alert alert-<%= message.type %> alert-dismissible fade show" role="alert">
+                        <strong>
+                            <%= message.message %>
+                        </strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <% } %>
+                        <div class="table-responsive">
+                            <% if (users !='' ) { %>
+                                <table class="table table-striped text-center">
+                                    <thead>
+                                        <tr class="table-dark">
+                                            <th>ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((row, index)=> { %>
+                                            <tr class="align-middle">
+                                                <td>
+                                                    <%= index %>
+                                                </td>
+                                                <td>
+                                                    <%= row.firstName %>
+                                                </td>
+                                                <td>
+                                                    <%= row.lastName %>
+                                                </td>
+                                                <td>
+                                                    <%= row.email %>
+                                                </td>
+                                                <td><img src="<%= row.image %>" width="50" class="img-thumbnail" alt="">
+                                                </td>
+                                                <td>
+                                                    <a href="/edit/<%= row._id %>" class="text-success m-1"><i
+                                                            class="bi bi-pencil-square"></i></a>
+                                                    <a href="/delete/<%= row._id %>" class="text-danger m-1"><i
+                                                            class="bi bi-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                                <% } else { %>
+                                    <h1 class="text-center text-secondary mt-5">No Users Found in the Database.</h1>
+                                    <% } %>
+                        </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('layout/footer') %>
